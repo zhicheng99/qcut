@@ -208,6 +208,8 @@ export default {
 
           // _this.initBgImgPosition();
         }
+        event.preventDefault();
+
       });
 
       Event.addEvents(this.$refs.cropper, "mousedown", function (event) {
