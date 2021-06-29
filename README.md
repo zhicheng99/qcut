@@ -1,5 +1,5 @@
 调用示例
-![](src/img/capture.png)
+![](https://github.com/zhicheng99/qcut/raw/main/src/img/capture.png)
 ```
 <template>
   <div id="app">
