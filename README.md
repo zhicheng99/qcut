@@ -1,3 +1,4 @@
+示例地址：https://zhicheng99.github.io/qcut/
 调用示例
 ![](https://github.com/zhicheng99/qcut/raw/main/src/img/capture.png)
 ```
