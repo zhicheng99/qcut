@@ -8,7 +8,7 @@
     "build": "node build/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot --inline",
-    "publish": "webpack --display-error-details --config webpack.config.js"
+    "pub": "webpack --display-error-details --config webpack.config.js"
   },
   "author": "alexmh",
   "license": "ISC",
