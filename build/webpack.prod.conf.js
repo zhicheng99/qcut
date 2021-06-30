@@ -67,11 +67,11 @@ var webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
-		new HtmlWebpackPlugin({  //发布判断设备进行跳转
-		  filename: 'loading.html',
-		  template: 'loading.html',
-		  inject: false
-		}), 
+		// new HtmlWebpackPlugin({  //发布判断设备进行跳转
+		//   filename: 'loading.html',
+		//   template: 'loading.html',
+		//   inject: false
+		// }), 
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

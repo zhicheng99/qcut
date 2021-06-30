@@ -11,8 +11,8 @@ module.exports = {
 	externals: {  
           // 'vue': 'Vue',    
          // 'element-ui': 'ELEMENT', 
-         'axios':'axios',  
-				 'echarts':'echarts'
+         // 'axios':'axios',  
+				 // 'echarts':'echarts'
    },
   entry: {
     app: './src/main.js'
