@@ -58,9 +58,9 @@
           <img :src="base64" ref="front_img" />
         </div>
       </div>
-      <div id="tip">{{ cut_width | format }}x{{ cut_height | format }}</div>
 
       <template v-if="!cut_moving">
+        <div id="tip">{{ cut_width | format }}x{{ cut_height | format }}</div>
         <span id="point1" class="point"></span>
         <span id="point2" class="point"></span>
         <span id="point3" class="point"></span>
@@ -579,8 +579,8 @@ export default {
           this.cut_height / this.scaleBase,
           0,
           0,
-          this.cut_width,
-          this.cut_height
+          canvas.width,
+          canvas.height
         );
 
         // console.log(canvas.toDataURL("image/png", 1.0));
@@ -609,14 +609,14 @@ export default {
           this.cut_height / this.scaleBase / scale_rate,
           0,
           0,
-          this.cut_width,
-          this.cut_height
+          canvas.width,
+          canvas.height
         );
 
         // console.log(canvas.toDataURL("image/png", 1.0));
       }
 
-      return canvas.toDataURL("image/png", 1.0);
+      return canvas.toDataURL("image/png", 1);
     },
     cut3: function () {
       //算对了 但是复杂  多了一层临时画布的过程
