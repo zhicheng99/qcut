@@ -60,7 +60,7 @@
       </div>
 
       <template v-if="!cut_moving">
-        <div id="tip">{{ cut_width | format }}x{{ cut_height | format }}</div>
+        <div id="tip">{{ cut_width * dpi | format }}x{{ cut_height * dpi | format }}</div>
         <span id="point1" class="point"></span>
         <span id="point2" class="point"></span>
         <span id="point3" class="point"></span>
@@ -103,6 +103,7 @@ export default {
   props: ["isFixed", "fixedRatio", "fileObj"],
   data() {
     return {
+      dpi:2,
       base64: "",
       cropper_width: 0,
       cropper_height: 0,
@@ -562,8 +563,8 @@ export default {
       var canvas = document.createElement("canvas");
       var ctx = canvas.getContext("2d");
 
-      canvas.width = this.cut_width;
-      canvas.height = this.cut_height;
+      canvas.width = this.cut_width * this.dpi;
+      canvas.height = this.cut_height * this.dpi;
 
       //图片尺寸整体小于容器
       if (
@@ -933,6 +934,7 @@ export default {
     },
   },
   mounted() {
+    this.dpi = window.devicePixelRatio || 2;
     this.cropper_width = this.$refs.cropper.offsetWidth;
     this.cropper_height = this.$refs.cropper.offsetHeight;
 
