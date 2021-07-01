@@ -5,7 +5,7 @@
       type="file"
       @change="addImg"
       accept="image/png,image/jpeg,image/gif,image/jpg"
-    />
+    /><br>
     =============================
     <br />自由裁图：
     <div style="width: 200px; height: 300px">

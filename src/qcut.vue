@@ -151,12 +151,20 @@ export default {
     },
   },
   methods: {
+    cut_center:function(){
+      this.cut_translateX = (this.cropper_width - this.cut_width)*0.5;
+      this.cut_translateY = (this.cropper_height - this.cut_height)*0.5;
+    },
     init_cut: function () {
       if (this.fixed) {
         this.fixedRate = this.fixedNumber[0] / this.fixedNumber[1];
         //以宽度为准 重新计算高
         this.cut_height = this.cut_width / this.fixedRate;
       }
+
+      //居中显示裁剪框
+      this.cut_center()
+      
     },
     limitRange: function () {
       //裁剪框限制在划动区域内
@@ -260,14 +268,14 @@ export default {
           //裁剪框限制在容器内
           var tmpX = x - _this.disX;
           var tmpY = y - _this.disY;
-          tmpX =
-            tmpX <= 0
-              ? 0
-              : tmpX >= _this.cut_maxLeft
-              ? _this.cut_maxLeft
-              : tmpX;
-          tmpY =
-            tmpY <= 0 ? 0 : tmpY >= _this.cut_maxTop ? _this.cut_maxTop : tmpY;
+          // tmpX =
+          //   tmpX <= 0
+          //     ? 0
+          //     : tmpX >= _this.cut_maxLeft
+          //     ? _this.cut_maxLeft
+          //     : tmpX;
+          // tmpY =
+          //   tmpY <= 0 ? 0 : tmpY >= _this.cut_maxTop ? _this.cut_maxTop : tmpY;
           _this.cut_translateX = tmpX;
           _this.cut_translateY = tmpY;
         }
@@ -933,7 +941,7 @@ export default {
 
     this.init_cut();
 
-    this.limitRange();
+    // this.limitRange();
     this.initEvent();
   },
   computed: {
@@ -959,7 +967,7 @@ export default {
         if (v) {
           this.fixedNumber = v;
           this.init_cut();
-          this.limitRange();
+          // this.limitRange();
         }
       },
       immediate: true,
@@ -1135,5 +1143,8 @@ export default {
   color: blue;
   background: #fff;
   pointer-events: none;
+  padding-left:3px;
+  padding-right:3px;
+
 }
 </style>
