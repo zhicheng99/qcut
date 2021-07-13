@@ -509,6 +509,34 @@ export default {
     addImg: function (e) {
       this.toBase64(e.target.files[0]);
     },
+    // 将base64的图片转换为blod文件
+    convertBase64UrlToBlob(urlData) {
+          let bytes = window.atob(urlData.split(',')[1]);//去掉url的头，并转换为byte
+          //处理异常,将ascii码小于0的转换为大于0
+          let ab = new ArrayBuffer(bytes.length);
+          let ia = new Uint8Array(ab);
+          for (var i = 0; i < bytes.length; i++) {
+              ia[i] = bytes.charCodeAt(i);
+          }
+          return new Blob([ab], { type: 'image/png' });
+      }, 
+    dataURLtoFile(dataurl, filename) {
+      var arr = dataurl.split(","),
+          mime = arr[0].match(/:(.*?);/)[1],
+          bstr = atob(arr[1]),
+          n = bstr.length,
+          u8arr = new Uint8Array(n);
+      while (n--) {
+          u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new File([u8arr], filename, { type: mime });
+    },
+    getCropBlob:function(){
+      return this.convertBase64UrlToBlob(this.cut4());
+    },
+    getCropFile:function(filename){
+      return this.dataURLtoFile(this.cut4(),filename);
+    },
     getCropData: function () {
       return this.cut4();
     },

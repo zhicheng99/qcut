@@ -50,10 +50,13 @@ export default {
       this.file = e.target.files[0];
     },
     cut1: function () {
+      console.log(this.$refs.qcut1.getCropBlob());
       document.getElementById("qcut1").innerHTML =
         '<img src="' + this.$refs.qcut1.getCropData() + '" />';
     },
     cut2: function () {
+      console.log(this.$refs.qcut1.getCropFile((new Date()).getTime()+'.png'));
+
       document.getElementById("qcut2").innerHTML =
         '<img src="' + this.$refs.qcut2.getCropData() + '" />';
     },
