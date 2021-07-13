@@ -55,7 +55,7 @@ export default {
         '<img src="' + this.$refs.qcut1.getCropData() + '" />';
     },
     cut2: function () {
-      console.log(this.$refs.qcut1.getCropFile((new Date()).getTime()+'.png'));
+      console.log(this.$refs.qcut1.getCropFile());
 
       document.getElementById("qcut2").innerHTML =
         '<img src="' + this.$refs.qcut2.getCropData() + '" />';

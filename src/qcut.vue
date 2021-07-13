@@ -534,7 +534,7 @@ export default {
     getCropBlob:function(){
       return this.convertBase64UrlToBlob(this.cut4());
     },
-    getCropFile:function(filename){
+    getCropFile:function(filename = (new Date()).getTime()){
       return this.dataURLtoFile(this.cut4(),filename);
     },
     getCropData: function () {
