@@ -1,6 +1,6 @@
 {
   "name": "qcut",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "./dist/qcut.js",
   "scripts": {
